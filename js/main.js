@@ -5,8 +5,14 @@ var todoList = {
 	//Displays todos to console:
 	showTodos: function() {
 		console.log('todos array: ', this.todos);
+	},
+	//Builds a new todo object with Todo constructor and adds it to the array:
+	newTodo: function(text) {
+		var t = new Todo(text);
+		this.todos.push(t);
 	}
-}
+
+};
 
 //constructor to add an item to todo array:
 function Todo(text) {
