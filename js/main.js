@@ -9,7 +9,12 @@ var todoList = {
 		} else {
 			console.log('My Todos: ')
 			for (var i = 0; i < this.todos.length; i++) {
-				console.log('Todo ' + i + ': ' + this.todos[i].text);
+				//shows if each todo is completed or not
+				if (this.todos[i].completed === true) {
+					console.log('Todo ' + i + ': ' + '(x) ' + this.todos[i].text);
+				} else {
+					console.log('Todo ' + i + ': ' + '( ) ' + this.todos[i].text);
+				}
 			}
 		}
 	},
