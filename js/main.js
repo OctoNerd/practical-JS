@@ -1,15 +1,13 @@
-
 var todoList = {
 	// Stores todo list items on an array
 	todos: [],
-	// Displays todos to console
+	// Displays todos to console and whether each todo is completed or not
 	showTodos: function() {
 		if (this.todos.length === 0) {
 			console.log('Todo list is empty');
 		} else {
 			console.log('My Todos: ')
 			for (var i = 0; i < this.todos.length; i++) {
-				//shows if each todo is completed or not
 				if (this.todos[i].completed === true) {
 					console.log('Todo ' + i + ': ' + '(x) ' + this.todos[i].text);
 				} else {
@@ -18,7 +16,7 @@ var todoList = {
 			}
 		}
 	},
-	// Builds a new todo object with Todo constructor and adds it to the array
+	// Builds a new todo object and adds it to the array
 	newTodo: function(text) {
 		this.todos.push({
 			text: text,
@@ -41,5 +39,34 @@ var todoList = {
 	deleteTodo: function(i) {
 		this.todos.splice(i, 1);
 		this.showTodos();
+	},
+	// Toggles all items between complete and uncomplete
+	toggleAll: function() {
+		var totalTodos = this.todos.length;
+		var completedTodos = 0;
+
+		// Get number of complete todos
+		for (var i = 0; i < totalTodos; i++) {
+			if (this.todos[i].completed === true) {
+				completedTodos++;
+			}
+		}
+
+		// If everything is completed, make everything not completed
+		if (completedTodos === totalTodos) {
+			//Make everything false
+			for (var i = 0; i < totalTodos; i++) {
+				this.todos[i].completed = false;
+			}
+		} else {
+			for (var i = 0; i < totalTodos; i++) {
+				this.todos[i].completed = true;
+			}
+		}
+		
+		this.showTodos();
 	}
 };
+
+
+todoList.newTodo("here's an item");
