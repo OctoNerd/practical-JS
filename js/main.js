@@ -17,3 +17,8 @@ function newTodo(text) {
 function editTodo(i, newText) {
 	todos[i].text = newText;
 }
+
+//Remove a todo
+function deleteTodo(i) {
+	todos.splice(i, 1);
+}
