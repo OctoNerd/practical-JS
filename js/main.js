@@ -1,7 +1,11 @@
 
 var todoList = {
+	//Stores todo list items on an array
 	todos: [],
-
+	//Displays todos to console:
+	showTodos: function() {
+		console.log('todos array: ', this.todos);
+	}
 }
 
 //constructor to add an item to todo array:
@@ -14,11 +18,6 @@ function Todo(text) {
 function newTodo(text) {
 	var t = new Todo(text);
 	todos.push(t);
-}
-
-//Displays todos to console:
-function showTodos() {
-	console.log('todos array: ', todos);
 }
 
 //Edits the text of a todo by array index number:
