@@ -4,9 +4,13 @@ var todoList = {
 	todos: [],
 	// Displays todos to console
 	showTodos: function() {
-		console.log('My Todos: ')
-		for (var i = 0; i < this.todos.length; i++) {
-			console.log('Todo ' + i + ': ' + this.todos[i].text);
+		if (this.todos.length === 0) {
+			console.log('Todo list is empty');
+		} else {
+			console.log('My Todos: ')
+			for (var i = 0; i < this.todos.length; i++) {
+				console.log('Todo ' + i + ': ' + this.todos[i].text);
+			}
 		}
 	},
 	// Builds a new todo object with Todo constructor and adds it to the array
