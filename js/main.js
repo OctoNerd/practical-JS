@@ -10,6 +10,16 @@ var todoList = {
 	newTodo: function(text) {
 		var t = new Todo(text);
 		this.todos.push(t);
+		this.showTodos();
+	},
+	//Edits the text of a todo by array index number:
+	editTodo: function(i, newText) {
+		this.todos[i].text = newText;
+		this.showTodos();
+	},
+	//remove one todo at index
+	deleteTodo: function(i) {
+		this.todos.splice(i, 1);
 	}
 
 };
@@ -18,20 +28,4 @@ var todoList = {
 function Todo(text) {
 	this.text = text;
 	this.completed = false;
-}
-
-//Builds a new todo object with Todo constructor and adds it to the array:
-function newTodo(text) {
-	var t = new Todo(text);
-	todos.push(t);
-}
-
-//Edits the text of a todo by array index number:
-function editTodo(i, newText) {
-	todos[i].text = newText;
-}
-
-//Remove one todo at index i:
-function deleteTodo(i) {
-	todos.splice(i, 1);
 }
