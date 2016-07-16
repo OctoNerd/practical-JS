@@ -63,7 +63,7 @@ var todoList = {
 				this.todos[i].completed = true;
 			}
 		}
-		
+
 		this.showTodos();
 	}
 };
