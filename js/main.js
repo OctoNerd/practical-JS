@@ -68,21 +68,16 @@ var todoList = {
 	}
 };
 
-// Get show todos button
-var showTodosButton = document.getElementById('showTodosButton');
-
-// Run showTodos when clicked
-showTodosButton.addEventListener('click', function() {
-	todoList.showTodos();
-});
-
-var toggleAllButton = document.getElementById('toggleAllButton');
-
-toggleAllButton.addEventListener('click', function() {
-	todoList.toggleAll();
-});
-
 todoList.newTodo('first item');
 todoList.newTodo('next item');
 todoList.newTodo('third item');
 todoList.newTodo('last item');
+
+var handlers = {
+	showTodos: function() {
+		todoList.showTodos();
+	},
+	toggleAll: function() {
+		todoList.toggleAll();
+	}
+};
