@@ -68,5 +68,15 @@ var todoList = {
 	}
 };
 
+// Get show todos button
+var showTodosButton = document.getElementById('showTodosButton');
 
-todoList.newTodo("here's an item");
+// Run showTodos when clicked
+showTodosButton.addEventListener('click', function() {
+	todoList.showTodos();
+});
+
+// todoList.newTodo('first item');
+// todoList.newTodo('next item');
+// todoList.newTodo('third item');
+// todoList.newTodo('last item');
