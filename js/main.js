@@ -76,7 +76,13 @@ showTodosButton.addEventListener('click', function() {
 	todoList.showTodos();
 });
 
-// todoList.newTodo('first item');
-// todoList.newTodo('next item');
-// todoList.newTodo('third item');
-// todoList.newTodo('last item');
+var toggleAllButton = document.getElementById('toggleAllButton');
+
+toggleAllButton.addEventListener('click', function() {
+	todoList.toggleAll();
+});
+
+todoList.newTodo('first item');
+todoList.newTodo('next item');
+todoList.newTodo('third item');
+todoList.newTodo('last item');
