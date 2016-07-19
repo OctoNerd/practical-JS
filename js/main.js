@@ -29,15 +29,15 @@ var todoList = {
 		this.todos[i].text = newText;
 		this.showTodos();
 	},
+	// Remove one todo at index position 'i'
+	deleteTodo: function(i) {
+		this.todos.splice(i, 1);
+		this.showTodos();
+	},
 	// Toggles the completed value of a todo object at (position 'i') between true and false
 	toggleCompleted: function(i) {
 		var todo = this.todos[i];
 		todo.completed = !todo.completed;
-		this.showTodos();
-	},
-	// Remove one todo at index position 'i'
-	deleteTodo: function(i) {
-		this.todos.splice(i, 1);
 		this.showTodos();
 	},
 	// Toggles all items between complete and uncomplete
@@ -72,9 +72,6 @@ var handlers = {
 	showTodos: function() {
 		todoList.showTodos();
 	},
-	toggleAll: function() {
-		todoList.toggleAll();
-	},
 	newTodo: function() {
 		var newTodoTextInput = document.getElementById('newTodoTextInput');
 		todoList.newTodo(newTodoTextInput.value);
@@ -96,5 +93,8 @@ var handlers = {
 		var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
 		todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
 		toggleCompletedPositionInput.value = '';
+	},
+	toggleAll: function() {
+		todoList.toggleAll();
 	}
 };
