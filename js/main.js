@@ -98,3 +98,15 @@ var handlers = {
 		todoList.toggleAll();
 	}
 };
+
+var view = {
+	showTodos: function() {
+		var todosUl = document.querySelector('ul');
+		todosUl.innerHTML = '';
+		for (var i = 0; i < todoList.todos.length; i++) {
+			var todoLi = document.createElement('li');
+			todoLi.textContent = todoList.todos[i].text;
+			todosUl.appendChild(todoLi);
+		}
+	}
+};
