@@ -105,7 +105,16 @@ var view = {
 		todosUl.innerHTML = '';
 		for (var i = 0; i < todoList.todos.length; i++) {
 			var todoLi = document.createElement('li');
-			todoLi.textContent = todoList.todos[i].text;
+			var todo = todoList.todos[i];
+			var todoTextWithCompletion = '';
+
+			if (todo.completed === true) {
+				todoTextWithCompletion = '# ' + i + ': ' + '(x) ' + todo.text;
+			} else {
+				todoTextWithCompletion = '# ' + i + ': ' + '( ) ' + todo.text;
+			}
+
+			todoLi.textContent = todoTextWithCompletion;
 			todosUl.appendChild(todoLi);
 		}
 	}
