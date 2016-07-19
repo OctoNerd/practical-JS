@@ -79,5 +79,10 @@ var handlers = {
 	},
 	toggleAll: function() {
 		todoList.toggleAll();
+	},
+	newTodo: function() {
+		var newTodoTextInput = document.getElementById('newTodoTextInput');
+		todoList.newTodo(newTodoTextInput.value);
+		newTodoTextInput.value = '';
 	}
 };

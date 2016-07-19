@@ -8,8 +8,15 @@
     <body>
         <h1>Todo:</h1>
 
-		<button onclick="handlers.showTodos()">Show Todos</button>
-		<button onclick="handlers.toggleAll()">Toggle All</button>
+		<div>
+			<button onclick="handlers.showTodos()">Show Todos</button>
+			<button onclick="handlers.toggleAll()">Toggle All</button>
+		</div>
+
+		<div>
+			<button onclick="handlers.newTodo()">Add</button>
+			<input id="newTodoTextInput" type="text">
+		</div>
 
         <script type="text/javascript" src="js/main.js"></script>
     </body>
