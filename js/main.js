@@ -68,11 +68,6 @@ var todoList = {
 	}
 };
 
-todoList.newTodo('first item');
-todoList.newTodo('next item');
-todoList.newTodo('third item');
-todoList.newTodo('last item');
-
 var handlers = {
 	showTodos: function() {
 		todoList.showTodos();
@@ -84,5 +79,12 @@ var handlers = {
 		var newTodoTextInput = document.getElementById('newTodoTextInput');
 		todoList.newTodo(newTodoTextInput.value);
 		newTodoTextInput.value = '';
+	},
+	editTodo: function() {
+		var editTodoPositionInput = document.getElementById('editTodoPositionInput');
+		var editTodoTextInput = document.getElementById('editTodoTextInput');
+		todoList.editTodo(editTodoPositionInput.valueAsNumber, editTodoTextInput.value);
+		editTodoPositionInput.value = '';
+		editTodoTextInput.value = '';
 	}
 };
