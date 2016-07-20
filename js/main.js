@@ -1,4 +1,4 @@
-var todoList = {
+var todoList = { //model
 	// Stores todo list items on an array
 	todos: [],
 	// Builds a new todo object and adds it to the array
@@ -47,7 +47,7 @@ var todoList = {
 	}
 };
 
-var handlers = {
+var handlers = { //controller
 	newTodo: function() {
 		var newTodoTextInput = document.getElementById('newTodoTextInput');
 		todoList.newTodo(newTodoTextInput.value);
@@ -62,10 +62,8 @@ var handlers = {
 		editTodoTextInput.value = '';
 		view.showTodos();
 	},
-	deleteTodo: function() {
-		var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
-		todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-		deleteTodoPositionInput.value = '';
+	deleteTodo: function(position) {
+		todoList.deleteTodo(position);
 		view.showTodos();
 	},
 	toggleCompleted: function() {
@@ -80,7 +78,7 @@ var handlers = {
 	}
 };
 
-var view = {
+var view = { //view
 	showTodos: function() {
 		var todosUl = document.querySelector('ul');
 		todosUl.innerHTML = '';
@@ -90,13 +88,41 @@ var view = {
 			var todoTextWithCompletion = '';
 
 			if (todo.completed === true) {
-				todoTextWithCompletion = '# ' + i + ': ' + '(x) ' + todo.text;
+				todoTextWithCompletion = '(x) ' + todo.text;
 			} else {
-				todoTextWithCompletion = '# ' + i + ': ' + '( ) ' + todo.text;
+				todoTextWithCompletion = '( ) ' + todo.text;
 			}
 
+			todoLi.id = i;
 			todoLi.textContent = todoTextWithCompletion;
+			todoLi.appendChild(this.createDeleteButton());
 			todosUl.appendChild(todoLi);
 		}
+	},
+	createDeleteButton: function() {
+		var deleteButton = document.createElement('button');
+		deleteButton.textContent = 'Delete';
+		deleteButton.className = 'deleteButton';
+		return deleteButton;
+	},
+	setUpEventListeners: function() {
+		var todosUl = document.querySelector('ul');
+
+		todosUl.addEventListener('click', function(event) {
+			var elementClicked = event.target;
+			
+			if (elementClicked.className === 'deleteButton') {
+				handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+			}
+		});
 	}
 };
+
+var helpers = {
+	runWithDebugger: function(ourFunction) {
+		debugger;
+		ourFunction();
+	}
+}
+
+view.setUpEventListeners();
